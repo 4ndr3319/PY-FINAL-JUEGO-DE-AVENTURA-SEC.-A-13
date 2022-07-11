@@ -1,0 +1,266 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://tiles/tiles.png" type="Texture" id=1]
+[ext_resource path="res://player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tiles/oga-10x10-cave-sprites.png" type="Texture" id=3]
+[ext_resource path="res://scena/level1.gd" type="Script" id=4]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://hud.gd" type="Script" id=6]
+[ext_resource path="res://ghost.tscn" type="PackedScene" id=7]
+[ext_resource path="res://musica/post-adventure_tea_party.wav" type="AudioStream" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 8, 8, 0, 8, 0, 0.30294, 8, 0.30294 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 9, 8, 0.171402, 8, 0.171402, 0.21431, 9, 0.21431 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "tiles.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 8, 96, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "tiles.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 64, 152, 9, 8 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 3 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="TileSet" id=5]
+0/name = "oga-10x10-cave-sprites.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 61, 12, 8, 7 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
+
+[sub_resource type="TileSet" id=7]
+0/name = "oga-10x10-cave-sprites.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 81, 21, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 6 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 451, 14 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 18.5, 8 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 20, 7 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 15.5, 20.5 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 3.62284, 4.07235 )
+
+[node name="Mundo" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="stage" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="stage"]
+margin_left = 22.0
+margin_top = 39.0
+margin_right = 1005.0
+margin_bottom = 571.0
+rect_pivot_offset = Vector2( 298, 466 )
+color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
+
+[node name="TileMap" type="TileMap" parent="stage"]
+scale = Vector2( 3, 3 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 65558, 0, 0, 65559, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65564, 0, 0, 65565, 0, 0, 65566, 0, 0, 65567, 0, 0, 65568, 0, 0, 65569, 0, 0, 65570, 0, 0, 65571, 0, 0, 65572, 0, 0, 65573, 0, 0, 65574, 0, 0, 65575, 0, 0, 65576, 0, 0, 65577, 0, 0, 65578, 0, 0, 65579, 0, 0, 131072, 0, 0, 131114, 0, 0, 131115, 0, 0, 196608, 0, 0, 196650, 0, 0, 196651, 0, 0, 262144, 0, 0, 262186, 0, 0, 262187, 0, 0, 327680, 0, 0, 327722, 0, 0, 327723, 0, 0, 393216, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0, 393255, 0, 0, 393256, 0, 0, 393257, 0, 0, 393258, 0, 0, 393259, 0, 0, 458752, 0, 0, 458794, 0, 0, 458795, 0, 0, 524288, 0, 0, 524320, 0, 0, 524330, 0, 0, 524331, 0, 0, 589824, 0, 0, 589866, 0, 0, 589867, 0, 0, 655360, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655402, 0, 0, 655403, 0, 0, 720896, 0, 0, 720938, 0, 0, 720939, 0, 0, 786432, 0, 0, 786454, 0, 0, 786474, 0, 0, 786475, 0, 0, 851968, 0, 0, 852010, 0, 0, 852011, 0, 0, 917504, 0, 0, 917546, 0, 0, 917547, 0, 0, 983040, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983082, 0, 0, 983083, 0, 0, 1048576, 0, 0, 1048618, 0, 0, 1048619, 0, 0, 1114112, 0, 0, 1114125, 0, 0, 1114154, 0, 0, 1114155, 0, 0, 1179648, 0, 0, 1179690, 0, 0, 1179691, 0, 0, 1245184, 0, 0, 1245195, 0, 0, 1245226, 0, 0, 1245227, 0, 0, 1310720, 0, 0, 1310762, 0, 0, 1310763, 0, 0, 1376256, 0, 0, 1376260, 0, 0, 1376261, 0, 0, 1376262, 0, 0, 1376263, 0, 0, 1376264, 0, 0, 1376265, 0, 0, 1376298, 0, 0, 1376299, 0, 0, 1441792, 0, 0, 1441834, 0, 0, 1441835, 0, 0, 1507328, 0, 0, 1507370, 0, 0, 1507371, 0, 0, 1572864, 0, 0, 1572865, 0, 0, 1572866, 0, 0, 1572867, 0, 0, 1572868, 1, 0, 1572869, 1, 0, 1572870, 1, 0, 1572871, 1, 0, 1572872, 1, 0, 1572873, 1, 0, 1572874, 1, 0, 1572875, 1, 0, 1572876, 1, 0, 1572877, 1, 0, 1572878, 1, 0, 1572879, 1, 0, 1572880, 1, 0, 1572881, 1, 0, 1572882, 1, 0, 1572883, 1, 0, 1572884, 1, 0, 1572885, 1, 0, 1572886, 1, 0, 1572887, 1, 0, 1572888, 1, 0, 1572889, 1, 0, 1572890, 1, 0, 1572891, 1, 0, 1572892, 1, 0, 1572893, 1, 0, 1572894, 1, 0, 1572895, 1, 0, 1572896, 1, 0, 1572897, 1, 0, 1572898, 1, 0, 1572899, 1, 0, 1572900, 1, 0, 1572901, 1, 0, 1572902, 1, 0, 1572903, 1, 0, 1572904, 1, 0, 1572905, 1, 0, 1572906, 0, 0, 1572907, 0, 0 )
+
+[node name="TileMap2" type="TileMap" parent="stage"]
+scale = Vector2( 3, 3 )
+tile_set = SubResource( 5 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 589850, 0, 0, 589851, 0, 0, 1310726, 0, 0, 1310727, 0, 0 )
+
+[node name="gibTileMap" type="TileMap" parent="stage"]
+visible = false
+scale = Vector2( 6, 6 )
+tile_set = SubResource( 7 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 131092, 0, 0 )
+
+[node name="hud" type="CanvasLayer" parent="."]
+script = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="hud"]
+margin_right = 1022.0
+margin_bottom = 23.0
+color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
+
+[node name="coinsLabel" type="Label" parent="hud"]
+margin_left = 819.0
+margin_top = 8.0
+margin_right = 859.0
+margin_bottom = 22.0
+text = "COINS :"
+
+[node name="LevelTxt" type="Label" parent="hud"]
+margin_left = 24.0
+margin_top = 5.0
+margin_right = 73.0
+margin_bottom = 19.0
+text = "LEVEL "
+
+[node name="LevelNumber" type="Label" parent="hud"]
+margin_left = 64.0
+margin_top = 5.0
+margin_right = 95.0
+margin_bottom = 19.0
+text = " 1"
+
+[node name="coinsNumber" type="Label" parent="hud"]
+margin_left = 874.0
+margin_top = 8.0
+margin_right = 923.0
+margin_bottom = 22.0
+text = "0"
+
+[node name="player2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 42, 549 )
+
+[node name="obstaculos" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="obstaculos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos/Area2D"]
+position = Vector2( 556, 589 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstaculos/Area2D"]
+position = Vector2( 166.5, 497 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="obstaculos/Area2D"]
+position = Vector2( 647, 231 )
+shape = SubResource( 10 )
+
+[node name="objets" type="Node2D" parent="."]
+position = Vector2( 223, 103 )
+
+[node name="coin" parent="objets" instance=ExtResource( 5 )]
+position = Vector2( 192, 215 )
+
+[node name="coin5" parent="objets" instance=ExtResource( 5 )]
+position = Vector2( 633, 5 )
+
+[node name="coin2" parent="objets" instance=ExtResource( 5 )]
+position = Vector2( 50, 249 )
+
+[node name="coin3" parent="objets" instance=ExtResource( 5 )]
+position = Vector2( -59, 325 )
+
+[node name="coin4" parent="objets" instance=ExtResource( 5 )]
+position = Vector2( 370, 102 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="ghost" parent="enemies" instance=ExtResource( 7 )]
+position = Vector2( 481, 345 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="enemies"]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/StaticBody2D"]
+position = Vector2( 519.5, 344 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/StaticBody2D"]
+position = Vector2( 347, 347 )
+shape = SubResource( 11 )
+
+[node name="door" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="door"]
+position = Vector2( 963, 115 )
+scale = Vector2( 7.3475, 7.47292 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 80.7705, 20.931, 8.42798, 8.2963 )
+
+[node name="Area2D" type="Area2D" parent="door/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door/Sprite/Area2D"]
+position = Vector2( 2.39792, -0.726932 )
+shape = SubResource( 12 )
+
+[node name="music" type="Node2D" parent="."]
+
+[node name="music" type="AudioStreamPlayer2D" parent="music"]
+stream = ExtResource( 8 )
+autoplay = true
+
+[connection signal="area_entered" from="obstaculos/Area2D" to="." method="_on_obstacles_area_entered"]
+[connection signal="area_entered" from="door/Sprite/Area2D" to="." method="_on_Area2D_area_entered"]
